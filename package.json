@@ -1,0 +1,16 @@
+{
+  "name": "truewheelmotors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "devDependencies": {
+    "lucide": "^1.46.0",
+    "vite": "^8.3.0"
+  }
+}

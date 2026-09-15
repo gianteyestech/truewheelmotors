@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="emblemBlueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E5AA8" />
+      <stop offset="50%" stop-color="#2F7CE5" />
+      <stop offset="100%" stop-color="#1E5AA8" />
+    </linearGradient>
+    <linearGradient id="emblemGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F4E4A6" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#A68214" />
+    </linearGradient>
+    <filter id="emblemGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#1E5AA8" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Car Silhouette: Upper Roofline & Hood (Royal Blue #1E5AA8) -->
+  <g filter="url(#emblemGlow)">
+    <!-- Main roofline arc -->
+    <path d="M 285 70 C 340 38, 460 36, 545 74 C 585 78, 640 95, 680 115" 
+          fill="none" stroke="url(#emblemBlueGrad)" stroke-width="5.5" stroke-linecap="round"/>
+    
+    <!-- Hood to nose curve -->
+    <path d="M 70 148 C 72 144, 80 141, 88 141 C 100 132, 140 115, 205 110 C 290 108, 430 106, 500 110" 
+          fill="none" stroke="url(#emblemBlueGrad)" stroke-width="5.5" stroke-linecap="round"/>
+    
+    <!-- Nose front-lip crease -->
+    <path d="M 70 148 L 84 158 L 80 174" 
+          fill="none" stroke="url(#emblemBlueGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Front Wheel Arch Upper (Royal Blue) -->
+    <path d="M 145 174 C 145 132, 230 132, 230 174" 
+          fill="none" stroke="url(#emblemBlueGrad)" stroke-width="5.5" stroke-linecap="round"/>
+
+    <!-- Rear Wheel Arch Upper (Royal Blue) -->
+    <path d="M 535 172 C 535 130, 625 130, 625 172" 
+          fill="none" stroke="url(#emblemBlueGrad)" stroke-width="5.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Car Silhouette: Lower Groundline & Rockers (Metallic Gold #D4AF37) -->
+  <g>
+    <!-- Lower underbody sweep -->
+    <path d="M 84 182 C 140 195, 230 192, 310 182 C 410 170, 500 172, 550 178 C 605 180, 655 182, 690 152" 
+          fill="none" stroke="url(#emblemGoldGrad)" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Front Wheel Inner Arc (Gold) -->
+    <path d="M 155 178 C 164 148, 215 148, 224 178" 
+          fill="none" stroke="url(#emblemGoldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Rear Wheel Inner Arc (Gold) -->
+    <path d="M 544 176 C 554 145, 612 145, 621 176" 
+          fill="none" stroke="url(#emblemGoldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>

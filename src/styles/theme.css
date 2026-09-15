@@ -1,0 +1,313 @@
+/* ==========================================================
+   TRUE WHEEL MOTORS - DESIGN SYSTEM TOKENS & BASE
+   Brand Palette Specification:
+   - Royal Blue:    #1E5AA8  (Primary brand colour)
+   - White:         #FFFFFF  (Backgrounds & clean space)
+   - Metallic Gold: #D4AF37  (Premium accent)
+   ========================================================== */
+
+:root {
+  /* Brand Palette */
+  --royal-blue: #1E5AA8;
+  --royal-blue-light: #2A72D4;
+  --royal-blue-deep: #12386B;
+  --royal-blue-subtle: rgba(30, 90, 168, 0.08);
+  --royal-blue-glow: rgba(30, 90, 168, 0.25);
+
+  --gold: #D4AF37;
+  --gold-light: #F7EBBA;
+  --gold-dark: #9E7D14;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --gold-gradient: linear-gradient(135deg, #FBF2D5 0%, #D4AF37 55%, #A68214 100%);
+  --gold-gradient-hover: linear-gradient(135deg, #FFF6DD 0%, #DFBD47 55%, #B7901A 100%);
+
+  /* Clean Space & Canvas (White #FFFFFF) */
+  --pure-white: #FFFFFF;
+  --bg-page: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --bg-subtle-alt: #F1F5F9;
+  
+  /* Text Contrast Hierarchy for Crisp White Space */
+  --text-title: #0C1E38;
+  --text-heading: #122B4F;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  /* Frosted Glassmorphism (Light & Luminous) */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.96);
+  --glass-bg-hover: #FFFFFF;
+  --glass-border: rgba(212, 175, 55, 0.25);
+  --glass-border-strong: rgba(30, 90, 168, 0.2);
+  --glass-blur: blur(18px);
+  --glass-shadow: 0 10px 30px -5px rgba(30, 90, 168, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --glass-shadow-hover: 0 20px 40px -8px rgba(30, 90, 168, 0.16), 0 0 0 1px rgba(212, 175, 55, 0.45);
+
+  --card-radius: 16px;
+  --pill-radius: 9999px;
+
+  /* Functional Status Colors */
+  --success: #059669;
+  --success-bg: rgba(5, 150, 105, 0.08);
+  --success-border: rgba(5, 150, 105, 0.25);
+  --info: #1E5AA8;
+  --info-bg: rgba(30, 90, 168, 0.08);
+
+  /* Typography */
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-smooth: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-page);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utility */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: 0.03em;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.25;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.35;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Glassmorphic Surfaces */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--card-radius);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--card-radius);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-bg-hover);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+/* Buttons & CTAs */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-gold {
+  background: var(--gold-gradient);
+  color: #0A192F;
+  box-shadow: 0 4px 15px var(--gold-glow);
+  font-weight: 700;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: var(--gold-gradient-hover);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.btn-royal {
+  background: var(--royal-blue);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px var(--royal-blue-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-royal:hover {
+  transform: translateY(-2px);
+  background: var(--royal-blue-light);
+  box-shadow: 0 6px 22px rgba(30, 90, 168, 0.4);
+}
+
+.btn-glass {
+  background: #FFFFFF;
+  color: var(--royal-blue);
+  border: 1px solid var(--royal-blue);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.btn-glass:hover {
+  background: var(--royal-blue);
+  color: #FFFFFF;
+}
+
+.btn-gold-outline {
+  background: #FFFFFF;
+  color: var(--text-title);
+  border: 1px solid var(--gold);
+}
+
+.btn-gold-outline:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-dark);
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* Gradients and Text Highlights */
+.gold-text {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.text-royal-blue {
+  color: var(--royal-blue);
+}
+
+.text-gold {
+  color: var(--gold-dark);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking {
+  letter-spacing: 0.1em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--royal-blue);
+  background: rgba(30, 90, 168, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--pill-radius);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  color: var(--royal-blue);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Ambient Subtle Tint Blobs */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blue {
+  background: radial-gradient(circle, rgba(30, 90, 168, 0.08) 0%, rgba(30, 90, 168, 0) 70%);
+}
+
+.ambient-gold {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 70%);
+}
