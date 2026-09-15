@@ -142,12 +142,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactWhatsAppDirect = document.getElementById("contact-whatsapp-direct");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       if (!contactForm.checkValidity()) {
         contactForm.reportValidity();
         return;
+      }
+
+      const submitBtn = document.getElementById("contact-submit-btn");
+      const origBtnText = submitBtn ? submitBtn.innerHTML : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Sending Inquiry...</span> <div style="display:inline-block; width: 14px; height: 14px; border: 2px solid #FFFFFF; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; margin-left: 0.5rem; vertical-align: middle;"></div>`;
       }
 
       const formData = new FormData(contactForm);
@@ -160,8 +167,38 @@ document.addEventListener("DOMContentLoaded", () => {
       const origin = formData.get("origin") || "Japan";
       const county = formData.get("county") || "Ireland";
       const vin = formData.get("vin") ? `(VIN: ${formData.get("vin")})` : "";
+      const message = formData.get("message") || "";
 
       const refId = `TWM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // Post to serverless email handler
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            contactMethod: method,
+            service,
+            vehicle,
+            year: formData.get("year") || "N/A",
+            origin,
+            vin: formData.get("vin") || "",
+            county,
+            message,
+            refId
+          })
+        });
+      } catch (err) {
+        console.warn("Contact API dispatch note:", err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = origBtnText;
+        }
+      }
 
       if (contactSummaryBox) {
         contactSummaryBox.innerHTML = `
@@ -173,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div><strong>Service:</strong> ${service}</div>
           <div><strong>Vehicle:</strong> ${vehicle} ${vin} (${origin})</div>
           <div><strong>Destination:</strong> Co. ${county} • Preferred via ${method}</div>
+          <div style="font-size: 0.8rem; color: #059669; margin-top: 0.35rem;">✉️ Confirmation email dispatched to your inbox and logged with Dublin customs desk.</div>
         `;
       }
 

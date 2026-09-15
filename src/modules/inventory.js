@@ -359,6 +359,52 @@ export function closeCarModal() {
   }
 }
 
+export function reserveCarModal(carId) {
+  const car = CARS_DATA.find((c) => c.id === carId);
+  if (!car) return;
+
+  // Close vehicle details modal if open
+  closeCarModal();
+
+  // 1. Populate the on-page Contact Us Form with this specific car's details
+  const vehicleInput = document.getElementById("contact-vehicle");
+  const yearInput = document.getElementById("contact-year");
+  const originSelect = document.getElementById("contact-origin");
+  const serviceSelect = document.getElementById("contact-service");
+  const messageInput = document.getElementById("contact-message");
+
+  if (vehicleInput) vehicleInput.value = `${car.make} ${car.model} (${car.trim})`;
+  if (yearInput) yearInput.value = car.year;
+  if (originSelect) originSelect.value = "Japan";
+  if (serviceSelect) {
+    for (let i = 0; i < serviceSelect.options.length; i++) {
+      if (serviceSelect.options[i].value.includes("Japan Auction") || serviceSelect.options[i].value.includes("Sourcing")) {
+        serviceSelect.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  if (messageInput) {
+    messageInput.value = `Hello, I am enquiring about the ${car.year} ${car.make} ${car.model} ${car.trim} (Ref: ${car.id}, Grade ${car.auctionGrade}, ${Number(car.mileageKm).toLocaleString()} km). Please provide the Japanese auction inspection sheet, landing cost breakdown, and VRT clearance timeline.`;
+  }
+
+  // 2. Smoothly scroll to the Contact Us section
+  const contactSection = document.getElementById("contact-section");
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: "smooth" });
+    
+    // Highlight the contact form briefly
+    const formCard = contactSection.querySelector(".contact-form-wrapper");
+    if (formCard) {
+      formCard.classList.add("form-highlight-pulse");
+      setTimeout(() => formCard.classList.remove("form-highlight-pulse"), 2200);
+    }
+    // Focus the first empty required field
+    const nameInput = document.getElementById("contact-name");
+    setTimeout(() => nameInput?.focus(), 650);
+  }
+}
+
 export function openWhatsAppEnquiry(carId) {
   const car = CARS_DATA.find((c) => c.id === carId);
   closeCarModal();
@@ -377,4 +423,6 @@ window.switchModalImage = function(src, btn) {
 
 window.openCarModal = openCarModal;
 window.closeCarModal = closeCarModal;
+window.reserveCarModal = reserveCarModal;
+window.reserveCarModalInventory = reserveCarModal;
 window.openWhatsAppEnquiry = openWhatsAppEnquiry;

@@ -32,19 +32,42 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="#inventory-section" class="nav-link">Vehicles</a></li>
+          
+          <!-- Services Mega Dropdown with Featured VRT Calculator -->
           <li class="nav-dropdown-wrapper">
             <a href="#customs-services-section" class="nav-link nav-dropdown-trigger" id="services-dropdown-toggle">
               <span>Services</span>
               <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
             <div class="nav-dropdown-menu">
-              <div class="nav-dropdown-badge">Irish Revenue AIS/CDS Customs Broker & Japanese Importer</div>
+              <!-- PRIMARY HERO FEATURE: 2026 Statutory VRT Calculator -->
+              <div class="nav-dropdown-featured-vrt">
+                <a href="#calculator-section" class="featured-vrt-card">
+                  <div class="featured-vrt-badge-row">
+                    <span class="featured-star">⭐ MOST REQUESTED STATUTORY TOOL</span>
+                    <span class="featured-status-dot">● Live 2026 Irish Revenue Schedule</span>
+                  </div>
+                  <div class="featured-vrt-main">
+                    <span class="featured-vrt-icon">💶</span>
+                    <div class="featured-vrt-text">
+                      <h5>2026 Irish Revenue VRT & NOx Calculator</h5>
+                      <p>Instant statutory rates: Category A/B VRT, 20 CO₂ bands, progressive NOx levy, and 0% EPA customs duty savings.</p>
+                    </div>
+                    <span class="featured-vrt-arrow">
+                      <span>Launch Calculator</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="nav-dropdown-badge">Irish Customs Brokerage & Import Clearances</div>
               <div class="nav-dropdown-grid">
                 <a href="#service-japan-sourcing" class="nav-dropdown-card">
                   <span class="dropdown-card-icon">🇯🇵</span>
                   <div class="dropdown-card-body">
-                    <h6>Japan Auction Sourcing</h6>
-                    <p>Direct bidding on USS Tokyo, HAA Kobe & JU auction houses</p>
+                    <h6>Japan Auction Direct Sourcing</h6>
+                    <p>Live USS Tokyo, HAA Kobe & JU bidding with sheet translation</p>
                   </div>
                 </a>
                 <a href="#service-customs-declarations" class="nav-dropdown-card">
@@ -61,13 +84,6 @@
                     <p>Statement of Origin verification eliminating the 10% tariff</p>
                   </div>
                 </a>
-                <a href="#service-vrt-omsp" class="nav-dropdown-card">
-                  <span class="dropdown-card-icon">💶</span>
-                  <div class="dropdown-card-body">
-                    <h6>VRT & OMSP Valuation Guide</h6>
-                    <p>Statutory 2026 Irish Revenue assessment & NCTS booking</p>
-                  </div>
-                </a>
                 <a href="#service-tor" class="nav-dropdown-card">
                   <span class="dropdown-card-icon">🏡</span>
                   <div class="dropdown-card-body">
@@ -82,9 +98,16 @@
                     <p>Apple CarPlay conversion, certified immobiliser & delivery</p>
                   </div>
                 </a>
+                <a href="#calculator-section" class="nav-dropdown-card highlight-card">
+                  <span class="dropdown-card-icon">📊</span>
+                  <div class="dropdown-card-body">
+                    <h6>VRT OMSP Valuation Guide</h6>
+                    <p>Worked examples & 5-step NCTS registration roadmap</p>
+                  </div>
+                </a>
               </div>
               <div class="nav-dropdown-footer">
-                <span>Need an instant clearance quote or bespoke vehicle sourcing?</span>
+                <span>Looking for a bespoke vehicle sourcing or instant customs clearance quote?</span>
                 <a href="#contact-section" class="dropdown-footer-link">
                   <span>Contact Customs Desk</span>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
@@ -92,6 +115,15 @@
               </div>
             </div>
           </li>
+
+          <!-- Dedicated Top-Level VRT Calculator Highlight -->
+          <li>
+            <a href="#calculator-section" class="nav-link nav-vrt-highlight" title="Statutory 2026 Irish Revenue VRT Calculator">
+              <span>VRT Calculator</span>
+              <span class="vrt-nav-pill">2026 Live</span>
+            </a>
+          </li>
+
           <li><a href="#how-it-works-section" class="nav-link">Import Guide</a></li>
           <li><a href="#about-section" class="nav-link">About</a></li>
           <li><a href="#contact-section" class="nav-link">Contact</a></li>
@@ -120,6 +152,18 @@
       </div>
       <ul class="mobile-nav-list">
         <li><a href="#inventory-section" class="mobile-nav-link">Vehicles</a></li>
+        
+        <!-- Featured Mobile VRT Calculator -->
+        <li>
+          <a href="#calculator-section" class="mobile-nav-link mobile-vrt-featured">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>💶</span>
+              <span>2026 VRT Calculator</span>
+            </span>
+            <span class="vrt-nav-pill">Live Tool</span>
+          </a>
+        </li>
+
         <li class="mobile-nav-item-has-sub">
           <div class="mobile-nav-sub-header">
             <a href="#customs-services-section" class="mobile-nav-link">Services</a>
@@ -128,10 +172,10 @@
             </button>
           </div>
           <ul class="mobile-nav-submenu" id="mobile-services-submenu">
+            <li><a href="#calculator-section" class="mobile-sub-link highlight-sub">⭐ <strong>2026 VRT & NOx Calculator (Live Tool)</strong></a></li>
             <li><a href="#service-japan-sourcing" class="mobile-sub-link">🇯🇵 Japan Auction Direct Sourcing</a></li>
             <li><a href="#service-customs-declarations" class="mobile-sub-link">📋 Customs AIS / CDS Clearance</a></li>
             <li><a href="#service-epa-duty" class="mobile-sub-link">🛡️ 0% Duty (EU-Japan EPA)</a></li>
-            <li><a href="#service-vrt-omsp" class="mobile-sub-link">💶 VRT & OMSP Valuation</a></li>
             <li><a href="#service-tor" class="mobile-sub-link">🏡 Transfer of Residence (TOR 1)</a></li>
             <li><a href="#service-nct-delivery" class="mobile-sub-link">🚚 2-Year NCT & Delivery</a></li>
           </ul>

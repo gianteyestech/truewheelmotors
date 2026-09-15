@@ -157,6 +157,196 @@
   transform: translateX(-50%) translateY(0);
 }
 
+/* Featured Top-Level VRT Link in Navbar */
+.nav-vrt-highlight {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  color: var(--royal-blue) !important;
+  font-weight: 700 !important;
+  padding: 0.42rem 0.85rem !important;
+  background: rgba(30, 90, 168, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 99px;
+  transition: all 0.25s ease;
+}
+
+.nav-vrt-highlight:hover {
+  background: #FFFFFF;
+  border-color: var(--gold);
+  box-shadow: 0 4px 14px rgba(30, 90, 168, 0.12);
+  transform: translateY(-1px);
+}
+
+.vrt-nav-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  padding: 0.18rem 0.5rem;
+  border-radius: 99px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+}
+
+/* Featured Hero Card inside Services Mega Dropdown */
+.nav-dropdown-featured-vrt {
+  margin-bottom: 1rem;
+}
+
+.featured-vrt-card {
+  display: block;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-vrt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold-gradient);
+}
+
+.featured-vrt-card:hover {
+  background: #FFFFFF;
+  border-color: var(--gold);
+  box-shadow: 0 10px 25px -5px rgba(30, 90, 168, 0.14);
+  transform: translateY(-2px);
+}
+
+.featured-vrt-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.featured-star {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold-dark);
+  background: rgba(212, 175, 55, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+}
+
+.featured-status-dot {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.featured-vrt-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featured-vrt-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.featured-vrt-text {
+  flex-grow: 1;
+}
+
+.featured-vrt-text h5 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--royal-blue);
+  margin: 0 0 0.25rem 0;
+}
+
+.featured-vrt-text p {
+  font-size: 0.78rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.featured-vrt-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.featured-vrt-card:hover .featured-vrt-arrow {
+  background: var(--royal-blue);
+  color: #FFFFFF;
+  border-color: var(--royal-blue);
+}
+
+.highlight-card {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  background: #F0FDF4 !important;
+}
+
+.mobile-vrt-featured {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  border-radius: 10px !important;
+  padding: 0.75rem 1rem !important;
+  font-weight: 700 !important;
+  color: var(--royal-blue) !important;
+  margin: 0.4rem 0 !important;
+}
+
+.highlight-sub {
+  color: var(--royal-blue) !important;
+  background: rgba(30, 90, 168, 0.05);
+  padding: 0.4rem 0.6rem !important;
+  border-radius: 6px;
+}
+
+/* Enquire Button Pulse Animation on Contact Form */
+@keyframes formHighlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); transform: scale(1); }
+  50% { box-shadow: 0 0 0 14px rgba(30, 90, 168, 0.2); transform: scale(1.01); }
+  100% { box-shadow: 0 16px 40px -10px rgba(30, 90, 168, 0.08); transform: scale(1); }
+}
+
+.form-highlight-pulse {
+  animation: formHighlightPulse 1.2s ease-in-out 2;
+  border-color: var(--gold) !important;
+}
+
 .nav-dropdown-badge {
   font-size: 0.72rem;
   font-weight: 700;

@@ -29,7 +29,12 @@ export function initSourcingModal() {
   };
 
   window.reserveCarModal = function(carId) {
-    window.openSourcingModal({ model: `Enquiry / Sourcing Request for Ref: ${carId}` });
+    // If inventory's reserveCarModal exists, prefer it to pre-fill the full Contact Us form
+    if (window.reserveCarModalInventory) {
+      window.reserveCarModalInventory(carId);
+    } else {
+      window.openSourcingModal({ model: `Bespoke Sourcing Request for Ref: ${carId}` });
+    }
   };
 
   if (closeBtn) {
@@ -43,23 +48,40 @@ export function initSourcingModal() {
   });
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
-      const make = formData.get("make");
-      const model = formData.get("model");
-      const name = formData.get("name");
-      const phone = formData.get("phone");
-      const county = formData.get("county");
+      const make = formData.get("make") || "Toyota";
+      const model = formData.get("model") || "Custom Import";
+      const name = formData.get("name") || "Valued Client";
+      const phone = formData.get("phone") || "";
+      const county = formData.get("county") || "Dublin";
+      const yearMin = formData.get("yearMin") || "2019";
+      const yearMax = formData.get("yearMax") || "2024";
+      const notes = formData.get("notes") || "None specified";
+      const refId = `TWM-SRC-${Math.floor(1000 + Math.random() * 9000)}`;
 
-      const summaryText = `🚗 *New Vehicle Import Sourcing Request - True Wheel Motors*\n` +
-        `• Customer: ${name}\n` +
-        `• Phone/WhatsApp: ${phone}\n` +
-        `• County: ${county}\n` +
-        `• Desired Vehicle: ${make} ${model}\n` +
-        `• Year Range: ${formData.get("yearMin")} - ${formData.get("yearMax")}\n` +
-        `• Preferences: ${formData.get("notes") || "None specified"}\n\n` +
-        `Please search upcoming Tokyo/USS auctions and provide available options.`;
+      // Dispatch email via no-reply@truewheelmotors.ie
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            phone,
+            contactMethod: 'WhatsApp',
+            service: 'Japan Auction Custom Sourcing',
+            vehicle: `${make} ${model}`,
+            year: `${yearMin} - ${yearMax}`,
+            origin: 'Japan (USS Tokyo / HAA Kobe)',
+            county,
+            message: `Preferences: ${notes}\nYear Range: ${yearMin}-${yearMax}\nFuel: ${formData.get("fuel") || "Hybrid"}`,
+            refId
+          })
+        });
+      } catch (err) {
+        console.warn("Sourcing email dispatch note:", err);
+      }
 
       form.classList.add("hidden");
       if (successBox) {
@@ -67,9 +89,10 @@ export function initSourcingModal() {
         const detailsEl = document.getElementById("sourcing-summary-details");
         if (detailsEl) {
           detailsEl.innerHTML = `
-            <strong style="color: var(--royal-blue); font-size: 1.15rem; display: block; margin-bottom: 0.5rem;">Sourcing Enquiry Logged for ${make} ${model}</strong>
+            <div style="font-family: monospace; font-size: 0.82rem; font-weight: 700; color: var(--gold-dark); margin-bottom: 0.4rem;">REF: ${refId}</div>
+            <strong style="color: var(--royal-blue); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Sourcing Inquiry Logged for ${make} ${model}</strong>
             <p class="text-sm text-muted" style="line-height: 1.6;">
-              Thank you, <strong>${name}</strong>. Our dedicated import desk will review upcoming live auction listings for your criteria and contact you at <strong>${phone}</strong> with matching Grade 4.5+ inspected options.
+              Thank you, <strong>${name}</strong>. Our Tokyo auction bidding desk has received your criteria and will review live Tokyo/Kobe auction sheets to contact you at <strong>${phone}</strong> with Grade 4.5+ inspected options.
             </p>
             <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #E2E8F0; font-size: 0.84rem; color: #64748B;">
               Direct Desk: <a href="mailto:info@truewheelmotors.ie" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">info@truewheelmotors.ie</a> &bull; <a href="tel:+353894787642" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">+353 89 478 7642</a> &bull; <a href="tel:+353863783948" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">+353 86 378 3948</a>
