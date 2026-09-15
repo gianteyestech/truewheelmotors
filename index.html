@@ -256,136 +256,278 @@
   <section class="section calculator-section" id="calculator-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Revenue & Customs Guidance</span>
-        <h2 class="section-title">Irish Revenue VRT & Customs Assessment Guide</h2>
+        <span class="section-kicker">Official 2026 Irish Revenue Engine</span>
+        <h2 class="section-title">Instant Irish VRT & Customs Duty Calculator</h2>
         <p class="section-desc">
-          Understand the exact rules for vehicle imports from Japan to Ireland. See how the EU–Japan EPA agreement qualifies Japanese-built vehicles for 0% customs duty, and how Irish VRT is calculated based on emissions.
+          Work out your exact Vehicle Registration Tax (VRT), CO₂ band percentages, progressive NOx environmental levies, and EU–Japan EPA 0% customs duty relief according to Irish Revenue Commissioners' published 2026 rates.
         </p>
       </div>
 
-      <div class="calc-console-grid">
-        <!-- Left: Interactive Assessment Selection -->
-        <div class="calc-input-panel glass-panel">
-          <h3 class="font-serif mb-4" style="color: var(--royal-blue); font-size: 1.35rem;">Select Vehicle Configuration</h3>
-
-          <div class="calc-group">
-            <div class="calc-group-label">
-              <span>Popular Import Presets</span>
-            </div>
-            <select id="calc-car-select" class="select-styled">
-              <option value="custom">Custom Japanese Import</option>
-              <option value="aqua">Toyota Aqua 1.5 Hybrid (CO2: 78g/km)</option>
-              <option value="prius">Toyota Prius 1.8 Hybrid (CO2: 82g/km)</option>
-              <option value="vezel">Honda Vezel 1.5 e:HEV (CO2: 96g/km)</option>
-              <option value="lexus">Lexus IS300h F-Sport (CO2: 104g/km)</option>
-              <option value="alphard">Toyota Alphard 2.5 Hybrid (CO2: 142g/km)</option>
-            </select>
-          </div>
-
-          <div class="calc-group">
-            <div class="calc-group-label">
-              <span>Fuel & Engine Technology</span>
-            </div>
-            <select id="calc-fuel-type" class="select-styled">
-              <option value="hybrid">Self-Charging Hybrid (Preferential Clean VRT Band + Low NOx)</option>
-              <option value="petrol">Standard Petrol (Euro 6)</option>
-              <option value="ev">Electric Vehicle (EV Minimum VRT Tier)</option>
-            </select>
-          </div>
-
-          <div class="calc-group">
-            <div class="calc-group-label">
-              <span>Estimated CO2 Emissions Rating</span>
-              <span id="calc-co2-display" class="text-royal-blue font-bold">85 g/km (9.5% VRT Rate • Band A2)</span>
-            </div>
-            <input type="range" id="calc-co2-slider" min="40" max="180" value="85" class="calc-slider" />
-            <div class="flex justify-between text-xs text-muted mt-1" style="display: flex; justify-content: space-between;">
-              <span>40g (Hybrid/EV)</span>
-              <span>100g (Average Hybrid)</span>
-              <span>180g (Executive)</span>
-            </div>
-          </div>
-
-          <!-- EU-Japan EPA 0% Duty Relief Toggle -->
-          <div class="epa-toggle-card">
-            <div class="epa-toggle-info">
-              <span style="font-size: 1.4rem;">🇯🇵</span>
+      <!-- Main Calculator Console -->
+      <div class="vrt-calculator-wrap">
+        <div class="vrt-calc-grid">
+          
+          <!-- LEFT: Vehicle Input Card -->
+          <div class="vrt-card vrt-input-card">
+            <div class="vrt-card-head">
               <div>
-                <strong>EU–Japan EPA 0% Customs Duty Relief</strong>
-                <p>Vehicles manufactured in Japan with Statement of Origin qualify for 0% duty (saves standard 10%).</p>
+                <span class="vrt-badge-kicker">Vehicle Assessment</span>
+                <h3 class="vrt-card-title">Vehicle Specifications</h3>
+              </div>
+              <div class="vrt-category-toggle">
+                <button type="button" class="vrt-seg-btn on" id="vrt-tab-a" data-cat="A">Car / SUV (Cat A)</button>
+                <button type="button" class="vrt-seg-btn" id="vrt-tab-b" data-cat="B">Van / Commercial (Cat B)</button>
               </div>
             </div>
-            <label class="switch" title="Toggle 0% EPA Customs Duty Relief">
-              <input type="checkbox" id="calc-epa-toggle" checked />
-              <span class="slider-switch"></span>
+
+            <!-- Quick Import Presets -->
+            <div class="vrt-field">
+              <label class="vrt-label" for="vrt-preset-select">Popular Japanese Import Presets</label>
+              <select id="vrt-preset-select" class="select-styled">
+                <option value="custom">Custom Vehicle Valuation</option>
+                <option value="aqua">Toyota Aqua 1.5 Hybrid (OMSP: €18.5k · CO₂: 78g · NOx: 10mg)</option>
+                <option value="prius">Toyota Prius 1.8 Hybrid (OMSP: €23.5k · CO₂: 82g · NOx: 10mg)</option>
+                <option value="vezel">Honda Vezel 1.5 e:HEV (OMSP: €26.5k · CO₂: 96g · NOx: 14mg)</option>
+                <option value="lexus">Lexus IS300h F-Sport (OMSP: €28.5k · CO₂: 104g · NOx: 15mg)</option>
+                <option value="alphard">Toyota Alphard 2.5 Hybrid (OMSP: €38k · CO₂: 142g · NOx: 22mg)</option>
+                <option value="note">Nissan Note e-Power (OMSP: €17.5k · CO₂: 82g · NOx: 11mg)</option>
+              </select>
+            </div>
+
+            <!-- Vehicle Origin -->
+            <div class="vrt-field">
+              <label class="vrt-label">Vehicle Origin</label>
+              <div class="vrt-origins-grid">
+                <label class="vrt-origin-chip on">
+                  <input type="radio" name="vrt-origin" value="japan" checked />
+                  <span>🇯🇵 Japan (0% EPA Duty)</span>
+                </label>
+                <label class="vrt-origin-chip">
+                  <input type="radio" name="vrt-origin" value="eu" />
+                  <span>🇪🇺 EU Member State</span>
+                </label>
+                <label class="vrt-origin-chip">
+                  <input type="radio" name="vrt-origin" value="uk" />
+                  <span>🇬🇧 UK (Post-Brexit)</span>
+                </label>
+                <label class="vrt-origin-chip">
+                  <input type="radio" name="vrt-origin" value="other" />
+                  <span>🌍 Other Non-EU</span>
+                </label>
+              </div>
+              <p class="vrt-origin-note" id="vrt-origin-note">
+                Japan Origin (True Wheel Motors Specialism): Eligible for 0% Customs Duty under the EU-Japan EPA Agreement with official Statement of Origin filed via Irish Revenue AIS/CDS.
+              </p>
+            </div>
+
+            <!-- Fuel Type & OMSP -->
+            <div class="vrt-row-2">
+              <div class="vrt-field">
+                <label class="vrt-label" for="vrt-fuel">Powertrain / Fuel</label>
+                <select id="vrt-fuel" class="select-styled">
+                  <option value="hybrid" selected>Self-Charging Hybrid / PHEV</option>
+                  <option value="petrol">Petrol</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="bev">Electric (BEV)</option>
+                </select>
+              </div>
+
+              <div class="vrt-field">
+                <label class="vrt-label" for="vrt-omsp">Revenue OMSP (€)</label>
+                <div class="vrt-euro-wrap">
+                  <span class="vrt-euro-prefix">€</span>
+                  <input type="number" id="vrt-omsp" min="0" step="250" value="24000" class="form-input" placeholder="24000" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Category B Flat €200 Checkbox (hidden by default) -->
+            <label class="vrt-checkbox-row hidden" id="vrt-flat-van-row">
+              <input type="checkbox" id="vrt-flat-van" />
+              <span>
+                <strong>Flat €200 N1 Commercial Van</strong>
+                <small>Fewer than 4 seats and laden mass exceeding 130% of mass in service.</small>
+              </span>
             </label>
+
+            <!-- BEV Note -->
+            <div class="vrt-hint-ok hidden" id="vrt-bev-note">
+              ⚡ Electric vehicles are treated as 0 g/km (7% band) and are completely exempt from the NOx levy. Irish Revenue BEV relief of up to €5,000 applies.
+            </div>
+
+            <!-- CO2 Block -->
+            <div id="vrt-co2-block">
+              <div class="vrt-row-2">
+                <div class="vrt-field">
+                  <label class="vrt-label" for="vrt-std">Testing Standard</label>
+                  <select id="vrt-std" class="select-styled">
+                    <option value="wltp" selected>WLTP (Current CoC Standard)</option>
+                    <option value="nedc">NEDC (Statutory Conversion)</option>
+                  </select>
+                </div>
+                <div class="vrt-field">
+                  <label class="vrt-label" for="vrt-co2">CO₂ Emissions (g/km)</label>
+                  <input type="number" id="vrt-co2" min="0" step="1" value="85" class="form-input" />
+                </div>
+              </div>
+              <label class="vrt-checkbox-row">
+                <input type="checkbox" id="vrt-co2-undoc" />
+                <span>
+                  No Recognised CO₂ Figure Available
+                  <small>Statutory top band applies: 41% of OMSP (min €820).</small>
+                </span>
+              </label>
+            </div>
+
+            <!-- NOx Block -->
+            <div id="vrt-nox-block">
+              <div class="vrt-field">
+                <label class="vrt-label" for="vrt-nox">NOx Emissions (mg/km)</label>
+                <input type="number" id="vrt-nox" min="0" step="1" value="12" class="form-input" />
+              </div>
+              <label class="vrt-checkbox-row">
+                <input type="checkbox" id="vrt-nox-undoc" />
+                <span>
+                  No NOx Documentation Available
+                  <small>Statutory maximum penalty applies: €4,850 for diesel, €600 for petrol/hybrid.</small>
+                </span>
+              </label>
+            </div>
           </div>
 
-          <div class="calc-group mt-4">
-            <button class="btn btn-gold w-full" style="width: 100%;" onclick="window.openSourcingModal()">
-              Request Us To Source This Vehicle in Japan
-            </button>
+          <!-- RIGHT: Result & Turnkey Clearance Card -->
+          <div class="vrt-card vrt-result-card">
+            <div id="vrt-result-box">
+              <!-- Dynamically populated by calculator.js -->
+            </div>
+
+            <!-- Revenue Compliance Credentials Callout -->
+            <div class="vrt-clearance-credentials">
+              <div class="vrt-cred-item">
+                <span class="vrt-cred-icon">🇯🇵</span>
+                <div>
+                  <strong>0% Customs Duty Under EU–Japan EPA</strong>
+                  <p>True Wheel Motors verifies Japanese origin to avoid the standard 10% non-EU tariff.</p>
+                </div>
+              </div>
+              <div class="vrt-cred-item">
+                <span class="vrt-cred-icon">🛡️</span>
+                <div>
+                  <strong>BIMTA Verified Odometer</strong>
+                  <p>Guaranteed authentic mileage checked against Japanese Ministry of Transport records.</p>
+                </div>
+              </div>
+              <div class="vrt-cred-item">
+                <span class="vrt-cred-icon">📋</span>
+                <div>
+                  <strong>Revenue AIS / CDS Declarations Managed</strong>
+                  <p>We submit electronic customs entries and prepare all paperwork for seamless NCTS registration.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+        </div>
+      </div>
+
+      <!-- Worked Example & Category Breakdown -->
+      <div class="vrt-guidance-grid">
+        <div class="vrt-info-card">
+          <span class="vrt-badge-kicker">Statutory Formula</span>
+          <h3 style="font-family: var(--font-heading); color: var(--royal-blue); margin: 0.4rem 0 1rem;">How VRT Is Calculated</h3>
+          <p class="text-sm text-muted">
+            Vehicle Registration Tax is a statutory charge applied the first time an imported vehicle is registered in the Republic of Ireland. It is based on Irish Revenue's Open Market Selling Price (OMSP)—not what you paid at auction in Japan.
+          </p>
+          <div class="vrt-formula-box">
+            VRT = (CO₂ Band Rate × Revenue OMSP) + NOx Environmental Levy − BEV Relief
+          </div>
+          <p class="text-sm text-muted">
+            Lower WLTP emissions place your vehicle into a lower percentage band. The NOx levy is added progressively for combustion engines, and qualifying electric vehicles receive up to €5,000 relief.
+          </p>
         </div>
 
-        <!-- Right: Official Revenue Rate Summary -->
-        <div class="calc-output-panel glass-panel">
-          <div class="flex justify-between items-center mb-4" style="display:flex; justify-content:space-between; align-items:center;">
-            <h3 class="font-serif" style="color: var(--royal-blue); font-size: 1.35rem;">Revenue & Import Classification</h3>
-            <span class="text-xs text-gold uppercase tracking font-bold">Irish Revenue Compliant</span>
-          </div>
-
-          <div class="calc-breakdown-table">
-            <div class="breakdown-row">
-              <div>
-                <strong>Customs Duty Rate</strong>
-                <span class="text-xs text-muted block" style="display: block; font-size: 0.78rem;" id="customs-rate-label">0% Duty (EU-Japan EPA Exemption with Statement of Origin)</span>
-              </div>
-              <span class="breakdown-val text-success">0% Preferential</span>
-            </div>
-            <div class="breakdown-row">
-              <div>
-                <strong>Irish Import VAT</strong>
-                <span class="text-xs text-muted block" style="display: block; font-size: 0.78rem;">Standard Revenue rate applied at Dublin Port</span>
-              </div>
-              <span class="breakdown-val">23% VAT</span>
-            </div>
-            <div class="breakdown-row">
-              <div>
-                <strong>Irish Revenue VRT CO2 Band</strong>
-                <span class="text-xs text-muted block" style="display: block; font-size: 0.78rem;">Calculated based on certified emissions</span>
-              </div>
-              <span class="breakdown-val text-royal-blue" id="out-vrt-band">9.5% of Revenue OMSP (Band A2)</span>
-            </div>
-            <div class="breakdown-row">
-              <div>
-                <strong>Annual Irish Motor Tax</strong>
-                <span class="text-xs text-muted block" style="display: block; font-size: 0.78rem;">Low hybrid emissions bracket</span>
-              </div>
-              <span class="breakdown-val" id="out-tax-band">€170 - €180 / year</span>
-            </div>
-            <div class="breakdown-row">
-              <div>
-                <strong>NCT & Registration Metal Plates</strong>
-                <span class="text-xs text-muted block" style="display: block; font-size: 0.78rem;">National Car Test booking & new plates</span>
-              </div>
-              <span class="breakdown-val text-success">Guaranteed Passed</span>
-            </div>
-          </div>
-
-          <div class="calc-total-box">
-            <span class="total-label">True Wheel Motors Complete Handover</span>
-            <div class="total-amount" id="out-clearance-status">0% Duty Eligible + 23% VAT + Revenue VRT Clearance</div>
-            <p class="total-sub">We handle customs declaration, VAT payment, Revenue VRT clearance, 2-Year NCT, and delivery on Irish plates.</p>
-          </div>
-
-          <div class="flex gap-3" style="display:flex; gap: 0.75rem;">
-            <button class="btn btn-royal flex-1" onclick="window.openSourcingModal({ model: 'Irish Revenue VRT & Duty Assessment Query' })">
-              Request Bespoke Revenue Assessment
-            </button>
+        <div class="vrt-example-card">
+          <span class="vrt-badge-kicker">Worked Example</span>
+          <h4 style="font-family: var(--font-heading); color: #FFFFFF; font-size: 1.15rem; margin: 0.5rem 0 1rem;">
+            2021 Toyota Aqua 1.5 Hybrid · OMSP €18,500
+          </h4>
+          <div class="vrt-ex-line"><span>CO₂ Rating (WLTP)</span><strong>78 g/km</strong></div>
+          <div class="vrt-ex-line"><span>Revenue CO₂ Band</span><strong>Band A1 (9.0%)</strong></div>
+          <div class="vrt-ex-line"><span>CO₂ Tax Component</span><strong>€1,665</strong></div>
+          <div class="vrt-ex-line"><span>Certified NOx (10 mg/km)</span><strong>€50</strong></div>
+          <div class="vrt-ex-line"><span>EU-Japan EPA Duty</span><strong class="text-gold">0% (€0 vs €1,850)</strong></div>
+          <div class="vrt-ex-total">
+            <span>Total Estimated VRT</span>
+            <strong>€1,715</strong>
           </div>
         </div>
       </div>
+
+      <!-- 5-Step NCTS Registration Process -->
+      <div class="vrt-ncts-section">
+        <div class="text-center mb-4" style="text-align: center; margin-bottom: 2rem;">
+          <span class="vrt-badge-kicker">The Official NCTS Journey</span>
+          <h3 style="font-family: var(--font-heading); color: var(--royal-blue); font-size: 1.6rem; margin-top: 0.35rem;">
+            Irish Vehicle Registration at NCTS
+          </h3>
+          <p class="text-sm text-muted" style="max-width: 650px; margin: 0 auto;">
+            Every imported vehicle must complete inspection and registration at an authorized NCTS centre within 30 days of arrival in Ireland.
+          </p>
+        </div>
+
+        <div class="vrt-steps-grid">
+          <div class="vrt-step-card">
+            <div class="vrt-step-num">1</div>
+            <h4>Book NCTS Appointment</h4>
+            <p>Schedule your vehicle registration inspection at your local NCTS centre within 30 days of Dublin port clearance.</p>
+          </div>
+          <div class="vrt-step-card">
+            <div class="vrt-step-num">2</div>
+            <h4>Prepare Documentation</h4>
+            <p>Assemble Japanese export certificate, invoice, EPA Statement of Origin, and Revenue AIS customs declaration.</p>
+          </div>
+          <div class="vrt-step-card">
+            <div class="vrt-step-num">3</div>
+            <h4>Physical Inspection</h4>
+            <p>NCTS inspector verifies chassis VIN, certified odometer mileage, emissions compliance, and vehicle specification.</p>
+          </div>
+          <div class="vrt-step-card">
+            <div class="vrt-step-num">4</div>
+            <h4>Settle VRT Payment</h4>
+            <p>Pay calculated VRT and NOx levy directly to Revenue at the NCTS desk via bank card or approved bank draft.</p>
+          </div>
+          <div class="vrt-step-card">
+            <div class="vrt-step-num">5</div>
+            <h4>Irish Metal Plates</h4>
+            <p>Irish registration number is immediately assigned and legal metal registration plates are fitted to your car.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 Category A CO2 Band Spectrum -->
+      <div class="vrt-spectrum-section">
+        <div class="flex justify-between items-center mb-3" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="vrt-badge-kicker">Statutory Revenue Schedule</span>
+            <h3 style="font-family: var(--font-heading); color: var(--royal-blue); font-size: 1.45rem; margin-top: 0.25rem;">
+              2026 Category A CO₂ Band Rates (Cars & SUVs)
+            </h3>
+          </div>
+          <span class="text-xs text-muted">20 Statutory Bands · 7% to 41% of OMSP</span>
+        </div>
+
+        <div class="vrt-spectrum-bar"></div>
+        <div class="vrt-spectrum-labels">
+          <span>7% (0–50 g/km · Low Emissions / BEV)</span>
+          <span>17.5% (126–130 g/km)</span>
+          <span>41% (191+ g/km · Top Tier)</span>
+        </div>
+
+        <div class="vrt-band-grid" id="vrt-band-grid">
+          <!-- Rendered dynamically by calculator.js -->
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -822,6 +964,7 @@
             <li><a href="#testimonials-section">Customer Reviews</a></li>
             <li><a href="#contact-section">Contact & Inquiries</a></li>
             <li><a href="javascript:void(0)" onclick="window.openSourcingModal()">Custom Auction Request</a></li>
+            <li><a href="javascript:void(0)" onclick="window.openCookieSettings && window.openCookieSettings()">Cookie Preferences (GDPR)</a></li>
           </ul>
         </div>
 

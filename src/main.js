@@ -1,12 +1,14 @@
 import { initInventory, closeCarModal } from "./modules/inventory.js";
 import { initCalculator } from "./modules/calculator.js";
 import { initSourcingModal } from "./modules/sourcingModal.js";
+import { initCookieConsent } from "./modules/cookies.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize inventory, calculator, and custom sourcing modal
+  // Initialize inventory, calculator, sourcing modal, and GDPR cookie consent
   initInventory();
   initCalculator();
   initSourcingModal();
+  initCookieConsent();
 
   // Glass header scroll effect
   const header = document.querySelector(".site-header");
