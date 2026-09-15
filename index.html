@@ -32,7 +32,66 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="#inventory-section" class="nav-link">Vehicles</a></li>
-          <li><a href="#customs-services-section" class="nav-link">Services</a></li>
+          <li class="nav-dropdown-wrapper">
+            <a href="#customs-services-section" class="nav-link nav-dropdown-trigger" id="services-dropdown-toggle">
+              <span>Services</span>
+              <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-badge">Irish Revenue AIS/CDS Customs Broker & Japanese Importer</div>
+              <div class="nav-dropdown-grid">
+                <a href="#service-japan-sourcing" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">🇯🇵</span>
+                  <div class="dropdown-card-body">
+                    <h6>Japan Auction Sourcing</h6>
+                    <p>Direct bidding on USS Tokyo, HAA Kobe & JU auction houses</p>
+                  </div>
+                </a>
+                <a href="#service-customs-declarations" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">📋</span>
+                  <div class="dropdown-card-body">
+                    <h6>Customs AIS / CDS Clearance</h6>
+                    <p>Electronic customs filings for Japanese, UK & worldwide imports</p>
+                  </div>
+                </a>
+                <a href="#service-epa-duty" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">🛡️</span>
+                  <div class="dropdown-card-body">
+                    <h6>0% Customs Duty (EU-Japan EPA)</h6>
+                    <p>Statement of Origin verification eliminating the 10% tariff</p>
+                  </div>
+                </a>
+                <a href="#service-vrt-omsp" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">💶</span>
+                  <div class="dropdown-card-body">
+                    <h6>VRT & OMSP Valuation Guide</h6>
+                    <p>Statutory 2026 Irish Revenue assessment & NCTS booking</p>
+                  </div>
+                </a>
+                <a href="#service-tor" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">🏡</span>
+                  <div class="dropdown-card-body">
+                    <h6>Transfer of Residence (TOR 1)</h6>
+                    <p>100% VRT & VAT exemption relief for relocating individuals</p>
+                  </div>
+                </a>
+                <a href="#service-nct-delivery" class="nav-dropdown-card">
+                  <span class="dropdown-card-icon">🚚</span>
+                  <div class="dropdown-card-body">
+                    <h6>2-Year NCT & Nationwide Delivery</h6>
+                    <p>Apple CarPlay conversion, certified immobiliser & delivery</p>
+                  </div>
+                </a>
+              </div>
+              <div class="nav-dropdown-footer">
+                <span>Need an instant clearance quote or bespoke vehicle sourcing?</span>
+                <a href="#contact-section" class="dropdown-footer-link">
+                  <span>Contact Customs Desk</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </li>
           <li><a href="#how-it-works-section" class="nav-link">Import Guide</a></li>
           <li><a href="#about-section" class="nav-link">About</a></li>
           <li><a href="#contact-section" class="nav-link">Contact</a></li>
@@ -61,7 +120,22 @@
       </div>
       <ul class="mobile-nav-list">
         <li><a href="#inventory-section" class="mobile-nav-link">Vehicles</a></li>
-        <li><a href="#customs-services-section" class="mobile-nav-link">Services</a></li>
+        <li class="mobile-nav-item-has-sub">
+          <div class="mobile-nav-sub-header">
+            <a href="#customs-services-section" class="mobile-nav-link">Services</a>
+            <button class="mobile-sub-toggle" id="mobile-services-toggle" aria-label="Toggle Services submenu">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <ul class="mobile-nav-submenu" id="mobile-services-submenu">
+            <li><a href="#service-japan-sourcing" class="mobile-sub-link">🇯🇵 Japan Auction Direct Sourcing</a></li>
+            <li><a href="#service-customs-declarations" class="mobile-sub-link">📋 Customs AIS / CDS Clearance</a></li>
+            <li><a href="#service-epa-duty" class="mobile-sub-link">🛡️ 0% Duty (EU-Japan EPA)</a></li>
+            <li><a href="#service-vrt-omsp" class="mobile-sub-link">💶 VRT & OMSP Valuation</a></li>
+            <li><a href="#service-tor" class="mobile-sub-link">🏡 Transfer of Residence (TOR 1)</a></li>
+            <li><a href="#service-nct-delivery" class="mobile-sub-link">🚚 2-Year NCT & Delivery</a></li>
+          </ul>
+        </li>
         <li><a href="#how-it-works-section" class="mobile-nav-link">Import Guide</a></li>
         <li><a href="#about-section" class="mobile-nav-link">About</a></li>
         <li><a href="#contact-section" class="mobile-nav-link">Contact</a></li>
@@ -545,7 +619,34 @@
       </div>
 
       <div class="customs-services-grid">
-        <div class="customs-card glass-card">
+        <!-- Service 1: Japan Auction Sourcing -->
+        <div class="customs-card glass-card" id="service-japan-sourcing">
+          <span class="customs-badge">Direct Tokyo & Kobe Desk</span>
+          <h4>Japan Auction Sourcing</h4>
+          <p>Access over 150,000 live Japanese vehicles weekly via USS, HAA, TAA, and JU auctions. We physically inspect, translate authentic auction inspection sheets, and secure Grade 4.5+ vehicles.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Live USS Tokyo & Kobe auction access</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Certified Japanese auction sheet translation</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> BIMTA odometer history verification</li>
+          </ul>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('Japan Auction Sourcing')">Enquire for Auction Sourcing</a>
+        </div>
+
+        <!-- Service 2: Irish Revenue Customs AIS/CDS Clearance -->
+        <div class="customs-card glass-card" id="service-customs-declarations">
+          <span class="customs-badge">Official Brokerage</span>
+          <h4>Revenue AIS / CDS Declarations</h4>
+          <p>Full electronic import customs declarations lodged with Irish Revenue via the Automated Import System (AIS) and UK Customs Declaration Service (CDS) for hassle-free freight release.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Irish Revenue direct electronic filing</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> TARIC classification & customs valuation</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dublin Port & Shannon arrival clearance</li>
+          </ul>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('Customs Declaration')">Get Customs Declaration</a>
+        </div>
+
+        <!-- Service 3: EU-Japan EPA 0% Duty Clearance -->
+        <div class="customs-card glass-card" id="service-epa-duty">
           <span class="customs-badge">EU-Japan EPA Exemption</span>
           <h4>0% Customs Duty Clearance</h4>
           <p>We audit and secure the official Statement of Origin / REX certificate confirming Japanese manufacture so you qualify for <strong>0% Customs Duty</strong> instead of the standard 10% non-EU charge.</p>
@@ -554,10 +655,11 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Statement of Origin verification</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Direct Irish Revenue electronic entry</li>
           </ul>
-          <button class="btn btn-glass mt-auto" onclick="window.openSourcingModal({ model: '0% EPA Customs Duty Exemption Filing' })">Enquire for 0% Duty</button>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('0% EPA Duty')">Enquire for 0% Duty</a>
         </div>
 
-        <div class="customs-card glass-card">
+        <!-- Service 4: VRT Valuation & Clearance -->
+        <div class="customs-card glass-card" id="service-vrt-omsp">
           <span class="customs-badge">Revenue Compliance</span>
           <h4>VRT Valuation & Clearance</h4>
           <p>We calculate precise VRT and NOx amounts based on Revenue's Open Market Selling Price (OMSP), organize NCT verification appointments, and register your new Irish metal plates.</p>
@@ -566,19 +668,33 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Revenue valuation appeals assistance</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> NCT test booking and verification</li>
           </ul>
-          <button class="btn btn-glass mt-auto" onclick="window.openSourcingModal({ model: 'Revenue VRT Valuation & Clearance Service' })">Get VRT Assessment</button>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('VRT Assessment')">Get VRT Assessment</a>
         </div>
 
-        <div class="customs-card glass-card">
+        <!-- Service 5: Transfer of Residence (TOR 1) -->
+        <div class="customs-card glass-card" id="service-tor">
           <span class="customs-badge">Relocation & Classics</span>
-          <h4>Transfer of Residence (TOR)</h4>
+          <h4>Transfer of Residence (TOR 1)</h4>
           <p>Moving back to Ireland with your car? If you have lived outside Ireland and owned the car for 6+ months, we can clear your vehicle with <strong>100% VRT & VAT relief</strong>.</p>
           <ul>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Form VRT 4 & TOR documentation</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Vintage cars (30+ yrs): €200 flat VRT</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Hassle-free Dublin customs clearance</li>
           </ul>
-          <button class="btn btn-glass mt-auto" onclick="window.openSourcingModal({ model: 'Transfer of Residence (TOR) 100% VRT & VAT Relief' })">TOR Exemption Help</button>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('Transfer of Residence')">TOR Exemption Help</a>
+        </div>
+
+        <!-- Service 6: 2-Year NCT & Turnkey Nationwide Delivery -->
+        <div class="customs-card glass-card" id="service-nct-delivery">
+          <span class="customs-badge">Turnkey Handover</span>
+          <h4>NCT & Nationwide Delivery</h4>
+          <p>Complete Irish road readiness. We convert infotainment to European Apple CarPlay/Android Auto, install Irish insurer-approved immobilisers, pass the 2-Year NCT, and deliver nationwide.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Guaranteed 2-Year NCT Pass</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Irish insurance immobiliser certificate</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Insured transporter to your driveway</li>
+          </ul>
+          <a href="#contact-section" class="btn btn-glass mt-auto" onclick="window.selectContactService && window.selectContactService('NCT & Delivery')">Book NCT & Delivery</a>
         </div>
       </div>
     </div>
@@ -933,9 +1049,254 @@
   </section>
 
   <!-- ==========================================================
+       CONTACT US & REVENUE CUSTOMS INQUIRY SECTION
+       Modeled after Irish Customs Brokerages & Direct Import Desks
+       ========================================================== -->
+  <section class="section contact-section" id="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Get in Touch</span>
+        <h2 class="section-title">Contact Our Irish Customs & Import Specialists</h2>
+        <p class="section-desc">
+          Whether you need bespoke Japan auction bidding, 0% EPA customs duty clearance, or Revenue VRT declarations, our Dublin desk provides fast, statutory compliance across all 26 Irish counties.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- LEFT COLUMN: Executive Inquiry Form -->
+        <div class="contact-form-wrapper glass-card">
+          <div class="form-header-bar">
+            <div>
+              <h3>Import & Customs Clearance Inquiry</h3>
+              <p>Submit your vehicle details below. Initial assessment delivered within 15 minutes during business hours.</p>
+            </div>
+            <span class="secure-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>GDPR Encrypted</span>
+            </span>
+          </div>
+
+          <form id="contact-inquiry-form" class="contact-inquiry-form" novalidate>
+            <!-- Personal Contact Details -->
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="contact-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Patrick O'Connor" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. patrick@example.ie" required />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="contact-phone">Irish Phone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="e.g. +353 87 123 4567" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-method">Preferred Contact Method</label>
+                <select id="contact-method" name="contactMethod" class="select-styled">
+                  <option value="WhatsApp" selected>WhatsApp (Fastest Response)</option>
+                  <option value="Phone Call">Direct Phone Call</option>
+                  <option value="Email">Email Communication</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Service Selection -->
+            <div class="form-group">
+              <label for="contact-service">Service Required <span class="req">*</span></label>
+              <select id="contact-service" name="service" class="select-styled" required>
+                <option value="" disabled selected>-- Select Import or Customs Service --</option>
+                <option value="Japan Auction Sourcing">🇯🇵 Japan Auction Direct Sourcing (USS Tokyo / HAA Kobe)</option>
+                <option value="Customs Declaration">📋 Irish Revenue AIS / CDS Customs Declaration Clearance</option>
+                <option value="0% EPA Duty">🛡️ 0% Customs Duty Clearance (EU-Japan Origin Statement)</option>
+                <option value="VRT Assessment">💶 Revenue VRT & OMSP Valuation Assessment</option>
+                <option value="Transfer of Residence">🏡 Transfer of Residence (TOR 1) 100% Tax Relief</option>
+                <option value="UK Import Customs">🇬🇧 UK & Northern Ireland Customs Clearance (Post-Brexit)</option>
+                <option value="NCT & Delivery">🚚 2-Year NCT Preparation & Turnkey Nationwide Delivery</option>
+                <option value="General Inquiry">💬 General Import & Compliance Consultation</option>
+              </select>
+            </div>
+
+            <!-- Vehicle Details -->
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="contact-vehicle">Vehicle Make & Model</label>
+                <input type="text" id="contact-vehicle" name="vehicle" class="form-input" placeholder="e.g. Toyota Aqua, Lexus IS300h" />
+              </div>
+              <div class="form-group">
+                <label for="contact-year">Year (Approx.)</label>
+                <input type="number" id="contact-year" name="year" class="form-input" placeholder="e.g. 2020" min="1990" max="2026" />
+              </div>
+              <div class="form-group">
+                <label for="contact-origin">Country of Origin</label>
+                <select id="contact-origin" name="origin" class="select-styled">
+                  <option value="Japan" selected>Japan (Direct Import)</option>
+                  <option value="United Kingdom">United Kingdom (GB)</option>
+                  <option value="Northern Ireland">Northern Ireland (NI)</option>
+                  <option value="European Union">European Union</option>
+                  <option value="Other">Other / International</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="contact-vin">Chassis / VIN (If Known / Purchased)</label>
+                <input type="text" id="contact-vin" name="vin" class="form-input" placeholder="e.g. NHP10-XXXXXXX or 17-digit VIN" />
+              </div>
+              <div class="form-group">
+                <label for="contact-county">Delivery County in Ireland</label>
+                <select id="contact-county" name="county" class="select-styled">
+                  <option value="Dublin" selected>Dublin</option>
+                  <option value="Cork">Cork</option>
+                  <option value="Galway">Galway</option>
+                  <option value="Limerick">Limerick</option>
+                  <option value="Kildare">Kildare</option>
+                  <option value="Meath">Meath</option>
+                  <option value="Wicklow">Wicklow</option>
+                  <option value="Waterford">Waterford</option>
+                  <option value="Louth">Louth</option>
+                  <option value="Other Ireland">Other (Nationwide 26 Counties)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Inquiry Details -->
+            <div class="form-group">
+              <label for="contact-message">Inquiry Details or Questions</label>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="Describe your vehicle needs, auction targets, customs questions, or any specific requirements..."></textarea>
+            </div>
+
+            <div class="form-checkbox-group">
+              <input type="checkbox" id="contact-consent" name="consent" required checked />
+              <label for="contact-consent">
+                I agree to True Wheel Motors contacting me regarding this automotive customs and vehicle import inquiry in accordance with Irish DPC and GDPR regulations.
+              </label>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-gold btn-lg w-full" id="contact-submit-btn" style="width: 100%;">
+                <span>Submit Clearance & Import Inquiry</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Form Success State Card -->
+          <div id="contact-form-success" class="contact-success-panel hidden">
+            <div class="success-icon-badge">✓</div>
+            <span class="success-kicker">Inquiry Successfully Received</span>
+            <h4>Thank You for Contacting True Wheel Motors</h4>
+            <p class="success-desc">
+              Your inquiry has been logged with our Dublin Import & Customs Desk. An import specialist is reviewing your vehicle details.
+            </p>
+            <div class="success-summary-box" id="contact-summary-box">
+              <!-- Rendered dynamically -->
+            </div>
+            <div class="success-actions">
+              <a href="https://wa.me/353894787642" target="_blank" rel="noopener noreferrer" class="btn btn-gold" id="contact-whatsapp-direct">
+                <span>Chat on WhatsApp Now (+353 89 478 7642)</span>
+              </a>
+              <button type="button" class="btn btn-glass" id="contact-reset-btn">
+                Send Another Inquiry
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Contact Desk & Credentials -->
+        <div class="contact-info-col">
+          <!-- Primary Contact Card -->
+          <div class="contact-card-premium glass-card">
+            <span class="contact-card-kicker">Direct Contact Desk</span>
+            <h3>Speak With Our Team</h3>
+            <p class="contact-card-intro">
+              Whether you are an individual importing a pristine Japanese hybrid or a motor trader requiring ongoing AIS customs declarations, our Dublin desk is at your service.
+            </p>
+
+            <div class="contact-channels-list">
+              <div class="contact-channel-item">
+                <div class="channel-icon">✉️</div>
+                <div class="channel-body">
+                  <span class="channel-label">Official Broker Email</span>
+                  <a href="mailto:info@truewheelmotors.ie" class="channel-value">info@truewheelmotors.ie</a>
+                  <span class="channel-hint">Monitored directly by Dublin customs desk</span>
+                </div>
+              </div>
+
+              <div class="contact-channel-item">
+                <div class="channel-icon">📞</div>
+                <div class="channel-body">
+                  <span class="channel-label">Direct Line 1 & WhatsApp</span>
+                  <a href="tel:+353894787642" class="channel-value">+353 89 478 7642</a>
+                  <span class="channel-hint">Voice, SMS & WhatsApp Business</span>
+                </div>
+              </div>
+
+              <div class="contact-channel-item">
+                <div class="channel-icon">📞</div>
+                <div class="channel-body">
+                  <span class="channel-label">Direct Line 2 & WhatsApp</span>
+                  <a href="tel:+353863783948" class="channel-value">+353 86 378 3948</a>
+                  <span class="channel-hint">Voice, SMS & WhatsApp Support</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operating Hours Box (modeled after irishcarimports.ie) -->
+            <div class="contact-hours-box">
+              <div class="hours-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <strong>Operating Hours</strong>
+              </div>
+              <ul class="hours-schedule">
+                <li><span>Monday – Friday:</span> <strong>8:30 AM – 6:00 PM</strong></li>
+                <li><span>Saturday:</span> <strong>9:30 AM – 4:00 PM</strong></li>
+                <li><span>Sunday:</span> <strong>Closed (Appointments Available)</strong></li>
+                <li><span>Bank Holidays:</span> <strong style="color: var(--royal-blue);">Urgent Customs AIS Support On-Call</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Trust & Accreditations Card -->
+          <div class="contact-trust-card glass-card">
+            <h4>Certified & Registered Compliance</h4>
+            <div class="trust-pill-list">
+              <div class="trust-pill-item">
+                <span class="pill-check">✓</span>
+                <div>
+                  <strong>Irish Revenue Authorized Broker</strong>
+                  <p>Direct electronic AIS/CDS customs entries, duty waivers, and VRT declaration filing.</p>
+                </div>
+              </div>
+              <div class="trust-pill-item">
+                <span class="pill-check">✓</span>
+                <div>
+                  <strong>BIMTA Verified Member</strong>
+                  <p>Certified Japanese Ministry of Transport export history and guaranteed authentic mileage.</p>
+                </div>
+              </div>
+              <div class="trust-pill-item">
+                <span class="pill-check">✓</span>
+                <div>
+                  <strong>Nationwide Vehicle Logistics</strong>
+                  <p>Fully insured car transporter delivery to Dublin, Cork, Galway, Limerick, and all 26 counties.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
        DUBLIN DEPOT & FOOTER
        ========================================================== -->
-  <footer class="site-footer" id="contact-section">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
