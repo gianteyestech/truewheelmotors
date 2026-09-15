@@ -34,3 +34,5 @@ Thumbs.db
 # Temporary media & brain
 .tempmediaStorage/
 .system_generated/
+
+.vercel
