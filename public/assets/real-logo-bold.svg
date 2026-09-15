@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" width="100%" height="100%">
+  <defs>
+    <!-- Royal Blue Rich Gradient -->
+    <linearGradient id="royalBlueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#103B75" />
+      <stop offset="35%" stop-color="#1652A2" />
+      <stop offset="70%" stop-color="#1E65BF" />
+      <stop offset="100%" stop-color="#124382" />
+    </linearGradient>
+
+    <!-- Warm Metallic Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5C158" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#AA820A" />
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow for Depth -->
+    <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F2D59" flood-opacity="0.10" />
+    </filter>
+
+    <style>
+      .brand-name {
+        font-family: 'Cinzel', 'Playfair Display', 'Georgia', serif;
+        font-weight: 800;
+        font-size: 46px;
+        letter-spacing: 5px;
+        fill: #14498C;
+        text-anchor: middle;
+      }
+      .brand-tagline {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-style: italic;
+        font-size: 17.5px;
+        font-weight: 600;
+        letter-spacing: 2.2px;
+        fill: #475569;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <g id="logo-mark" filter="url(#logoShadow)">
+    <!-- ==========================================
+         CAR SILHOUETTE - BOLD, CATCHY, SPORTY
+         ========================================== -->
+    <!-- Rear lower lip -->
+    <path d="M 240 206 L 275 206" 
+          fill="none" 
+          stroke="url(#royalBlueGrad)" 
+          stroke-width="15" 
+          stroke-linecap="round" />
+
+    <!-- Main Aerodynamic Body Contour -->
+    <!-- Rear bumper -> Rear decklid -> C-Pillar -> Roof -> Windshield -> Hood -> Front nose -> Front bumper -->
+    <path d="M 245 206 
+             C 240 178, 255 158, 290 144 
+             C 325 130, 360 98, 415 84 
+             C 455 74, 500 76, 540 92 
+             C 575 106, 610 134, 650 148 
+             C 690 162, 722 178, 722 206" 
+          fill="none" 
+          stroke="url(#royalBlueGrad)" 
+          stroke-width="16" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Front lower lip -->
+    <path d="M 685 206 L 722 206" 
+          fill="none" 
+          stroke="url(#royalBlueGrad)" 
+          stroke-width="15" 
+          stroke-linecap="round" />
+
+    <!-- Inner Aerodynamic Speed Curve (Roofline Double Stroke) -->
+    <path d="M 382 108 
+             C 440 88, 495 90, 538 108" 
+          fill="none" 
+          stroke="url(#royalBlueGrad)" 
+          stroke-width="11" 
+          stroke-linecap="round" />
+
+    <!-- ==========================================
+         WHEELS: BOLD ROYAL BLUE RIMS & GOLD HUBS
+         ========================================== -->
+    <!-- Rear Wheel (Left) -->
+    <g id="wheel-rear">
+      <circle cx="330" cy="206" r="37" fill="none" stroke="url(#royalBlueGrad)" stroke-width="15" />
+      <circle cx="330" cy="206" r="16" fill="url(#goldGrad)" stroke="#B89324" stroke-width="2.5" />
+      <circle cx="330" cy="206" r="4.5" fill="#FFFFFF" />
+    </g>
+
+    <!-- Front Wheel (Right) -->
+    <g id="wheel-front">
+      <circle cx="636" cy="206" r="37" fill="none" stroke="url(#royalBlueGrad)" stroke-width="15" />
+      <circle cx="636" cy="206" r="16" fill="url(#goldGrad)" stroke="#B89324" stroke-width="2.5" />
+      <circle cx="636" cy="206" r="4.5" fill="#FFFFFF" />
+    </g>
+
+    <!-- ==========================================
+         GROUND HORIZON ARC (METALLIC GOLD)
+         ========================================== -->
+    <path d="M 215 244 
+             Q 480 264, 745 244" 
+          fill="none" 
+          stroke="url(#goldGrad)" 
+          stroke-width="7" 
+          stroke-linecap="round" />
+  </g>
+
+  <!-- ==========================================
+       BRAND TYPOGRAPHY: PRESTIGIOUS & CRISP
+       ========================================== -->
+  <text x="480" y="320" class="brand-name">
+    TRUE WHEEL MOTORS
+  </text>
+
+  <text x="480" y="356" class="brand-tagline">
+    Driven From Japan, Delivered With Trust
+  </text>
+</svg>

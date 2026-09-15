@@ -995,44 +995,8 @@ input:checked + .slider-switch:before {
 }
 
 /* ----------------------------------------------------------
-   8. ABOUT US SECTION
+   8. ABOUT US SECTION (STYLED IN SECTION 12 BELOW)
    ---------------------------------------------------------- */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.about-pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.about-pillar-card {
-  display: flex;
-  gap: 0.85rem;
-  align-items: flex-start;
-  background: #FFFFFF;
-  padding: 1.1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 4px 14px rgba(30, 90, 168, 0.04);
-}
-
-.about-pillar-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: rgba(30, 90, 168, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--royal-blue);
-  flex-shrink: 0;
-}
 
 .about-media-card {
   position: relative;
@@ -1769,69 +1733,149 @@ input:checked + .slider-switch:before {
   line-height: 1.25;
 }
 
-.about-story-col p {
-  font-size: 1rem;
-  line-height: 1.7;
+/* ----------------------------------------------------------
+   EXECUTIVE PHILOSOPHY SHOWCASE & 4 CORE PILLARS
+   ---------------------------------------------------------- */
+.philosophy-showcase-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 3rem 2.5rem;
+  margin-bottom: 2.75rem;
+  box-shadow: 0 10px 30px rgba(30, 90, 168, 0.05);
+}
+
+.philosophy-header-wrap {
+  margin-bottom: 2rem;
+}
+
+.philosophy-heading {
+  font-size: 2rem;
+  color: var(--royal-blue);
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  line-height: 1.28;
+  font-family: var(--font-heading);
+}
+
+.philosophy-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.philosophy-text-col p {
+  font-size: 0.98rem;
+  line-height: 1.75;
   color: var(--text-secondary);
   margin-bottom: 1.25rem;
 }
 
-.about-quote {
-  padding: 1.25rem 1.5rem;
-  background: rgba(30, 90, 168, 0.04);
-  border-left: 4px solid var(--royal-blue);
-  border-radius: 0 10px 10px 0;
-  margin: 1.5rem 0;
-  font-style: italic;
-  color: var(--royal-blue);
-  font-weight: 500;
+.philosophy-text-col p:last-child {
+  margin-bottom: 0;
 }
 
+.about-quote {
+  padding: 1.35rem 1.75rem;
+  background: linear-gradient(135deg, rgba(30, 90, 168, 0.05), rgba(212, 175, 55, 0.08));
+  border-left: 4px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  margin-bottom: 1.5rem;
+}
+
+.about-quote p {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--royal-blue);
+  font-weight: 500;
+  font-family: var(--font-serif);
+}
+
+/* 4 Core Trust Pillars - Spacious Full-Width Layout */
 .about-pillars-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
 .about-pillar-card {
+  display: flex;
+  flex-direction: column;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-top: 3.5px solid var(--gold);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .about-pillar-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 12px 28px rgba(30, 90, 168, 0.1);
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.6);
+  border-top-color: var(--gold);
+  box-shadow: 0 16px 36px rgba(30, 90, 168, 0.12);
+}
+
+.pillar-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
 }
 
 .about-pillar-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(30, 90, 168, 0.08);
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(30, 90, 168, 0.08), rgba(212, 175, 55, 0.12));
+  border: 1px solid rgba(212, 175, 55, 0.3);
   color: var(--royal-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
-.about-pillar-card h4 {
-  font-size: 1.05rem;
+.pillar-number-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold-dark);
+  background: rgba(212, 175, 55, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+}
+
+.pillar-title {
+  font-size: 1.15rem;
   color: var(--royal-blue);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-family: var(--font-heading);
+  line-height: 1.35;
 }
 
-.about-pillar-card p {
-  font-size: 0.86rem;
-  line-height: 1.55;
+.pillar-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: var(--text-secondary);
-  margin: 0;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.pillar-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--royal-blue);
+  background: rgba(30, 90, 168, 0.06);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  width: fit-content;
 }
 
 .about-stats-bar {
@@ -1895,9 +1939,9 @@ input:checked + .slider-switch:before {
   .why-japan-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .about-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
   .about-stats-bar {
     grid-template-columns: 1fr 1fr;
@@ -1938,6 +1982,16 @@ input:checked + .slider-switch:before {
   }
   .why-japan-grid {
     grid-template-columns: 1fr;
+  }
+  .philosophy-showcase-card {
+    padding: 2rem 1.25rem;
+  }
+  .philosophy-heading {
+    font-size: 1.5rem;
+  }
+  .philosophy-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .about-pillars-grid {
     grid-template-columns: 1fr;
