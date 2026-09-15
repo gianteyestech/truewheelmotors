@@ -67,15 +67,11 @@ export function initSourcingModal() {
         const detailsEl = document.getElementById("sourcing-summary-details");
         if (detailsEl) {
           detailsEl.innerHTML = `
-            <strong style="color: var(--royal-blue); font-size: 1.1rem;">Sourcing Request Received for ${make} ${model}</strong>
-            <p class="text-sm mt-2 text-muted">Our Tokyo & Kobe auction team will scan current listings and send verified Grade 4.5+ inspection sheets directly to <strong>${phone}</strong>.</p>
+            <strong style="color: var(--royal-blue); font-size: 1.15rem; display: block; margin-bottom: 0.5rem;">Sourcing Enquiry Logged for ${make} ${model}</strong>
+            <p class="text-sm text-muted" style="line-height: 1.6;">
+              Thank you, <strong>${name}</strong>. Our dedicated Tokyo & Kobe import desk will review upcoming live auction listings for your criteria and contact you at <strong>${phone}</strong> with matching Grade 4.5+ inspected options.
+            </p>
           `;
-        }
-        const waBtn = document.getElementById("btn-send-wa-summary");
-        if (waBtn) {
-          waBtn.onclick = () => {
-            window.open(`https://wa.me/353871234567?text=${encodeURIComponent(summaryText)}`, "_blank");
-          };
         }
       }
     });

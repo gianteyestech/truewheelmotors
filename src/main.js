@@ -18,18 +18,77 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mobile menu toggle
+  // Mobile menu toggle & drawer
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const mobileNav = document.getElementById("mobile-nav-drawer");
+  const mobileClose = document.getElementById("mobile-nav-close");
+  
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener("click", () => {
-      mobileNav.classList.toggle("active");
+      mobileNav.classList.add("active");
+      document.body.style.overflow = "hidden";
     });
+
+    const closeMobileMenu = () => {
+      mobileNav.classList.remove("active");
+      document.body.style.overflow = "";
+    };
+
+    if (mobileClose) {
+      mobileClose.addEventListener("click", closeMobileMenu);
+    }
+
+    mobileNav.addEventListener("click", (e) => {
+      if (e.target === mobileNav) {
+        closeMobileMenu();
+      }
+    });
+
     mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.remove("active");
-      });
+      link.addEventListener("click", closeMobileMenu);
     });
+  }
+
+  // Floating Back to Top Button
+  const backToTopBtn = document.getElementById("back-to-top");
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 450) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // Active Navigation Scrollspy
+  const sections = document.querySelectorAll("section[id], footer[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  if (sections.length && navLinks.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -60% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   }
 
   // FAQ Accordion
@@ -65,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") {
       closeCarModal();
       if (window.closeSourcingModal) window.closeSourcingModal();
+      if (mobileNav) {
+        mobileNav.classList.remove("active");
+        document.body.style.overflow = "";
+      }
     }
   });
 });
