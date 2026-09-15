@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Keyboard escape key to close modals
+  // Keyboard escape key to close modals and chat
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeCarModal();
@@ -260,6 +260,100 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileNav.classList.remove("active");
         document.body.style.overflow = "";
       }
+      const waChatBox = document.getElementById("whatsapp-chat-box");
+      if (waChatBox && waChatBox.classList.contains("active")) {
+        waChatBox.classList.remove("active");
+        waChatBox.setAttribute("aria-hidden", "true");
+      }
     }
   });
+
+  // ==========================================================
+  // OFFICIAL WHATSAPP LIVE CHAT WIDGET (SUBTAIN - DUBLIN DESK)
+  // Official Phone: +353 89 478 7642
+  // ==========================================================
+  const waWidget = document.getElementById("whatsapp-widget");
+  const waTriggerBtn = document.getElementById("whatsapp-trigger-btn");
+  const waChatBox = document.getElementById("whatsapp-chat-box");
+  const waCloseBtn = document.getElementById("whatsapp-chat-close");
+  const waInput = document.getElementById("whatsapp-chat-input");
+  const waSendBtn = document.getElementById("whatsapp-send-btn");
+  const waChips = document.querySelectorAll(".wa-chip");
+  const waBadge = document.querySelector(".whatsapp-badge-count");
+  const WA_PHONE = "353894787642";
+
+  function openWhatsAppChat(prefillMessage) {
+    const text = encodeURIComponent(
+      prefillMessage || "Hello Subtain, I would like to enquire about importing a car with True Wheel Motors."
+    );
+    const url = `https://wa.me/${WA_PHONE}?text=${text}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  if (waTriggerBtn && waChatBox) {
+    waTriggerBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isActive = waChatBox.classList.contains("active");
+      if (isActive) {
+        waChatBox.classList.remove("active");
+        waChatBox.setAttribute("aria-hidden", "true");
+      } else {
+        waChatBox.classList.add("active");
+        waChatBox.setAttribute("aria-hidden", "false");
+        if (waBadge) {
+          waBadge.style.display = "none";
+        }
+        setTimeout(() => {
+          waInput?.focus();
+        }, 120);
+      }
+    });
+
+    if (waCloseBtn) {
+      waCloseBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        waChatBox.classList.remove("active");
+        waChatBox.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    // Quick chips click
+    waChips.forEach((chip) => {
+      chip.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const msg = chip.getAttribute("data-msg") || chip.textContent.trim();
+        openWhatsAppChat(msg);
+      });
+    });
+
+    // Send button click
+    if (waSendBtn) {
+      waSendBtn.addEventListener("click", () => {
+        const val = waInput?.value?.trim();
+        openWhatsAppChat(val || "Hello Subtain, I'm reaching out from the True Wheel Motors website.");
+        if (waInput) waInput.value = "";
+        waChatBox.classList.remove("active");
+        waChatBox.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    // Input Enter key
+    if (waInput) {
+      waInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          waSendBtn?.click();
+        }
+      });
+    }
+
+    // Click outside to close
+    document.addEventListener("click", (e) => {
+      if (waChatBox.classList.contains("active") && !waWidget?.contains(e.target)) {
+        waChatBox.classList.remove("active");
+        waChatBox.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
 });
+

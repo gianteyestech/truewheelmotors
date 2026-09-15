@@ -1242,7 +1242,7 @@
             </div>
             <div class="success-actions">
               <a href="https://wa.me/353894787642" target="_blank" rel="noopener noreferrer" class="btn btn-gold" id="contact-whatsapp-direct">
-                <span>Chat on WhatsApp Now (+353 89 478 7642)</span>
+                <span>Chat with Subtain on WhatsApp (+353 89 478 7642)</span>
               </a>
               <button type="button" class="btn btn-glass" id="contact-reset-btn">
                 Send Another Inquiry
@@ -1272,20 +1272,22 @@
               </div>
 
               <div class="contact-channel-item">
-                <div class="channel-icon">📞</div>
+                <div class="channel-icon" style="font-size: 1.6rem; color: #25D366;">
+                  💬
+                </div>
                 <div class="channel-body">
-                  <span class="channel-label">Direct Line 1 & WhatsApp</span>
-                  <a href="tel:+353894787642" class="channel-value">+353 89 478 7642</a>
-                  <span class="channel-hint">Voice, SMS & WhatsApp Business</span>
+                  <span class="channel-label">Direct WhatsApp Desk (Subtain)</span>
+                  <a href="https://wa.me/353894787642?text=Hello%20Subtain,%20I%20am%20enquiring%20about%20a%20Japanese%20car%20import%20and%20customs%20clearance." target="_blank" rel="noopener noreferrer" class="channel-value">+353 89 478 7642</a>
+                  <span class="channel-hint">Subtain &bull; Online &bull; Direct WhatsApp Support</span>
                 </div>
               </div>
 
               <div class="contact-channel-item">
                 <div class="channel-icon">📞</div>
                 <div class="channel-body">
-                  <span class="channel-label">Direct Line 2 & WhatsApp</span>
+                  <span class="channel-label">Direct Line 2 & Operations</span>
                   <a href="tel:+353863783948" class="channel-value">+353 86 378 3948</a>
-                  <span class="channel-hint">Voice, SMS & WhatsApp Support</span>
+                  <span class="channel-hint">Voice, SMS & Nationwide Transport Desk</span>
                 </div>
               </div>
             </div>
@@ -1546,6 +1548,91 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ==========================================================
+       OFFICIAL WHATSAPP LIVE CHAT WIDGET (SUBTAIN - DUBLIN DESK)
+       ========================================================== -->
+  <div class="whatsapp-widget-container" id="whatsapp-widget">
+    <!-- Pop-up Interactive Chat Box -->
+    <div class="whatsapp-chat-box" id="whatsapp-chat-box" aria-hidden="true">
+      <div class="whatsapp-chat-header">
+        <div class="whatsapp-agent-info">
+          <div class="whatsapp-avatar-wrap">
+            <div class="whatsapp-avatar">
+              <span class="whatsapp-avatar-initials">SM</span>
+              <span class="whatsapp-online-dot" title="Online now"></span>
+            </div>
+          </div>
+          <div class="whatsapp-agent-text">
+            <h4>Subtain</h4>
+            <span class="whatsapp-agent-role">True Wheel Motors &bull; Dublin Desk</span>
+            <span class="whatsapp-status-text">🟢 Online &bull; Typically replies in minutes</span>
+          </div>
+        </div>
+        <button class="whatsapp-chat-close" id="whatsapp-chat-close" aria-label="Close WhatsApp chat">&times;</button>
+      </div>
+
+      <div class="whatsapp-chat-body">
+        <div class="whatsapp-chat-date">Today</div>
+        <div class="whatsapp-bubble incoming">
+          <div class="bubble-sender">Subtain</div>
+          <div class="bubble-message">
+            Hi there! 👋 Welcome to True Wheel Motors.
+            <br /><br />
+            I'm <strong>Subtain</strong>. How can I help you today with <strong>Japanese auction sourcing</strong>, <strong>0% EPA duty clearance</strong>, or <strong>VRT estimates</strong>?
+          </div>
+          <div class="bubble-time">Just now <span class="wa-checkmarks">✓✓</span></div>
+        </div>
+
+        <!-- Quick Question Chips -->
+        <div class="whatsapp-quick-chips">
+          <button type="button" class="wa-chip" data-msg="Hello Subtain, I would like to enquire about sourcing a car from Japan.">
+            🇯🇵 Custom Japan Sourcing
+          </button>
+          <button type="button" class="wa-chip" data-msg="Hello Subtain, can you help me calculate VRT & NOx for my vehicle?">
+            💶 VRT & OMSP Valuation
+          </button>
+          <button type="button" class="wa-chip" data-msg="Hello Subtain, I need 0% EPA Customs Duty clearance for my Japanese car.">
+            🛡️ 0% EPA Duty Clearance
+          </button>
+        </div>
+      </div>
+
+      <div class="whatsapp-chat-footer">
+        <div class="whatsapp-input-row">
+          <input 
+            type="text" 
+            id="whatsapp-chat-input" 
+            placeholder="Type a message to Subtain..." 
+            autocomplete="off"
+          />
+          <button type="button" id="whatsapp-send-btn" class="whatsapp-send-btn" title="Send on WhatsApp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M1.101 21.757L23.8 12.028 1.101 2.3 1 9.885l16.286 2.143L1 14.171z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="whatsapp-footer-note">
+          <span>Official WhatsApp Desk: +353 89 478 7642</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Trigger Button -->
+    <button class="whatsapp-trigger-btn" id="whatsapp-trigger-btn" aria-label="Chat with Subtain on WhatsApp" title="Chat with Subtain on WhatsApp (+353 89 478 7642)">
+      <span class="whatsapp-badge-count">1</span>
+      <!-- Official WhatsApp SVG Logo -->
+      <svg class="whatsapp-icon-svg" viewBox="0 0 32 32" width="34" height="34">
+        <path fill="#FFFFFF" d="M16 2.5C8.544 2.5 2.5 8.544 2.5 16c0 2.656.772 5.132 2.1 7.224L2.64 30.12l7.104-1.928A13.43 13.43 0 0 0 16 29.5c7.456 0 13.5-6.044 13.5-13.5S23.456 2.5 16 2.5z"/>
+        <path fill="#25D366" d="M16 4.3c6.46 0 11.7 5.24 11.7 11.7 0 6.46-5.24 11.7-11.7 11.7-2.14 0-4.16-.57-5.9-1.57l-.42-.24-4.4 1.19 1.18-4.29-.27-.44A11.64 11.64 0 0 1 4.3 16c0-6.46 5.24-11.7 11.7-11.7z"/>
+        <path fill="#FFFFFF" d="M22.37 18.52c-.35-.18-2.08-1.03-2.4-1.15-.32-.12-.55-.18-.78.18-.23.35-.9 1.15-1.1 1.39-.2.23-.41.26-.76.09-.35-.18-1.49-.55-2.84-1.75-1.05-.94-1.76-2.1-1.97-2.45-.2-.35-.02-.54.15-.71.16-.16.35-.41.52-.62.18-.2.23-.35.35-.58.12-.23.06-.44-.03-.62-.09-.18-.78-1.89-1.08-2.58-.29-.68-.58-.58-.78-.59l-.67-.01c-.23 0-.61.09-.93.44-.32.35-1.22 1.2-1.22 2.92s1.25 3.39 1.42 3.62c.18.23 2.46 3.76 5.96 5.27.83.36 1.48.57 1.99.73.84.27 1.6.23 2.2.14.67-.1 2.08-.85 2.37-1.67.29-.82.29-1.52.2-1.67-.08-.15-.32-.23-.67-.41z"/>
+      </svg>
+      <span class="whatsapp-trigger-label">
+        <strong>Chat with Subtain</strong>
+        <small>Online &bull; WhatsApp</small>
+      </span>
+    </button>
   </div>
 
   <!-- Floating Back to Top Button -->
