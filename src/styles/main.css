@@ -1696,6 +1696,10 @@ input:checked + .slider-switch:before {
   display: block;
 }
 
+.footer-bottom-right {
+  padding-right: 4.5rem;
+}
+
 .developer-credit {
   display: inline-flex;
   align-items: center;
